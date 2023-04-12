@@ -123,15 +123,15 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
             },
         })
 
-        // await transport.sendMail({
-        //     from: {
-        //         name: process.env.SMTP_FROM_NAME,
-        //         address: process.env.SMTP_FROM_EMAIL
-        //     },
-        //     to: user.email,
-        //     subject: 'Yêu cầu đặt lại mật khẩu của bạn',
-        //     text: message,
-        // });
+        await transport.sendMail({
+            from: {
+                name: process.env.SMTP_FROM_NAME,
+                address: process.env.SMTP_FROM_EMAIL
+            },
+            to: user.email,
+            subject: 'Yêu cầu đặt lại mật khẩu của bạn',
+            text: message,
+        });
 
         res.status(200).json({
             success: true,
