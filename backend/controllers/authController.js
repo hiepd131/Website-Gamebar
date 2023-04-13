@@ -104,7 +104,7 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
     const resetToken = user.getResetPasswordToken();
     await user.save({ validateBeforeSave: false });
 
-    const resetURL = `${req.protocol}://${process.env.FRONTEND_URL}/reset?token=${resetToken}`;
+    const resetURL = `${process.env.FRONTEND_URL}/reset?token=${resetToken}`;
 
     const message = `Bạn nhận được email này vì bạn (hoặc ai đó khác) đã yêu cầu đặt lại mật khẩu tài khoản của bạn.\n\n
     Hãy nhấp vào liên kết sau để đặt lại mật khẩu của bạn:\n\n
@@ -124,10 +124,7 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
         })
 
         await transport.sendMail({
-            from: {
-                name: process.env.SMTP_FROM_NAME,
-                address: process.env.SMTP_FROM_EMAIL
-            },
+            from:`"${process.env.SMTP_FROM_NAME}" <${process.env.SMTP_FROM_EMAIL}>`,
             to: user.email,
             subject: 'Yêu cầu đặt lại mật khẩu của bạn',
             text: message,
