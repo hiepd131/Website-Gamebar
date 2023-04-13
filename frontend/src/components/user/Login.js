@@ -18,7 +18,7 @@ const Login = ({ history, location }) => {
 
     const { isAuthenticated, error, loading } = useSelector(state => state.auth);
     const { message,error: forgotError,token } = useSelector(state => state.forgotPassword);
-    const redirect = location.search ? location.search.split('=')[0] : '/'
+    const redirect = location.search ? location.search.split('=')[1] : '/'
     useEffect(() => {
         
         if (isAuthenticated) {
