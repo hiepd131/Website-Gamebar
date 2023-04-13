@@ -144,7 +144,7 @@ const ProductDetails = ({ match }) => {
 
                             <div className="rating-outer">
                                 <span id="no_of_reviews">{product.ratings}</span>
-                                <div className="rating-inner" style={{ width: `${(product.ratings / 6.5) * 100}%` }}></div>
+                                <div className="rating-inner" style={{ width: `${(product.ratings) * 20}%` }}></div>
                             </div>
                             <span id="no_of_reviews">({product.numOfReviews} đánh giá)</span>
 
