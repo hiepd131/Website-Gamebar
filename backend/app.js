@@ -56,8 +56,6 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
     })
 }
 
-console.log(path.join(__dirname, '../frontend/build'))
-
 // Middleware to handle errors
 app.use(errorMiddleware);
 
