@@ -27,16 +27,18 @@ const Login = ({ history, location }) => {
         
         if (error && error !== 'Vui lòng đăng nhập') {
             alert.error(error);
+            dispatch(clearErrors());
         }
         if (message) {
             alert.success(message)
+            dispatch(clearErrors());
         }
         
         if(forgotError){
             alert.error(forgotError)
+            dispatch(clearErrors());
         }
         
-        dispatch(clearErrors());
     }, [dispatch, alert, isAuthenticated,token, error, history,message,forgotError, redirect])
 
     const submitHandler = (e) => {

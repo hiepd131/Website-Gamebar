@@ -31,19 +31,14 @@ const ProductReviews = () => {
             dispatch(clearErrors())
         }
 
-        if (productId !== '') {
+        if (productId.length !== 0) {
             dispatch(getProductReviews(productId))
-        }
-        else{
-            document.getElementById('result_').innerHTML =`Copy / Paste ID sản phẩm vào thanh tìm kiếm để kiểm tra bình luận`;
         }
 
         if (isDeleted) {
             alert.success('Đã xóa đánh giá thành công');
             dispatch({ type: DELETE_REVIEW_RESET })
         }
-
-
 
     }, [dispatch, alert, error, productId, isDeleted, deleteError])
 
@@ -60,6 +55,10 @@ const ProductReviews = () => {
         // Add your custom action here
         if (!reviews||reviews.length===0) {
             document.getElementById('result_').innerHTML = `Không có bình luận cho sản phẩm này.`;
+            
+        if(productId.length===0){
+            document.getElementById('result_').innerHTML =`Copy / Paste ID sản phẩm vào thanh tìm kiếm để kiểm tra bình luận`;
+        }
         }
     }
 
