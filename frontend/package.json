@@ -2,7 +2,6 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://gamebar1.onrender.com/",
   "dependencies": {
     "@stripe/react-stripe-js": "^1.1.3",
     "@stripe/stripe-js": "^1.11.0",
