@@ -58,5 +58,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://gamebar.onrender.com/"
+  "proxy": "http://localhost:4000"
 }
