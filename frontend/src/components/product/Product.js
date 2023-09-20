@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom'
 
 
 
-const Product = ({ product, col}) => {
+const Product = ({ product, col }) => {
 
     return (
 
-        <div className={`col-sm-12 col-md-6 col-lg-${col} my-3`}>
-            <div className=" card card p-3 rounded">
+        <div className={`col-sm-12 col-md-6 col-lg-${col} my-3 d-flex`}>
+            <div className="card card p-3 rounded flex-fill">
                 <Link to={`/product/${product._id}`}><img className="card-img-top mx-auto" src={product.images[0].url} alt='' /></Link>
                 <div className="card-body d-flex flex-column">
                     <h5 className="card-title">
@@ -28,10 +28,10 @@ const Product = ({ product, col}) => {
                             <Link to={`/product/${product._id}`} id="view_btn" className="btn btn-block"><i className="fa fa-eye" aria-hidden="true"><span>&nbsp;</span></i>Xem chi tiết</Link>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
+
 
 
     )
